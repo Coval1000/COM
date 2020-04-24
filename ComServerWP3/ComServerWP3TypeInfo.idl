@@ -1,0 +1,53 @@
+
+import "ocidl.idl";
+
+[object, uuid(1722B091-5851-4DFE-812A-C752ABE7FD1E),
+oleautomation, helpstring("Actual data")]
+interface IMesh : IUnknown
+{
+	typedef struct _Data 
+	{
+		[ptr] float *points;
+		int sizeX;
+		int sizeY;
+	}Data;
+	HRESULT SetData([in] Data *mesh);
+	HRESULT GetData([in, out] Data *mesh);
+	HRESULT SetCell([in] float *value, [in] int *index);
+	HRESULT GetCell([in] int *index, [out, retval] float *value);
+};
+
+[object, uuid(F45B5967-1AB8-4866-83A5-DF9143BC188F),
+oleautomation, helpstring("Remote initation")]
+interface IRemote : IUnknown
+{
+	typedef struct _Window
+	{
+		[ptr] long* hwnd;
+		int width;
+		int height;
+	}Window;
+	HRESULT SetHandle([in] Window *window);
+	HRESULT GetHandle([out, retval] Window *window);
+};
+
+[object, uuid(5035E0BD-B189-4468-B291-E6952378015B),
+oleautomation, helpstring("Empty interface")]
+interface IDummy : IUnknown
+{
+
+};
+
+[uuid(8111931E-085F-4A68-B773-C2755E8FBEF7), version(1.0),
+helpstring("Agent server with typeLib")]
+library ComServerWP3Lib
+{
+	importlib("stdole32.tlb");
+	[uuid(EC15E049-CC3F-4DD1-A337-43D365875FE2)]
+	coclass Agent
+	{
+		[default] interface IDummy;
+		interface IMesh;
+		interface IRemote;
+	};
+};

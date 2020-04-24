@@ -1,0 +1,59 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.spv
+
+cmake_install.cmake
+Makefile
+CMakeFiles
+CMakeCache.txt
+vkdemo
+VkEngine
+Debug
+Release
+x64
+.vscode
+.vs
+*.db
+*.sln
+*.vcxproj
+*.user
+*.filters
+*.iobj
+*.ipdb
+*.pdb
+*.log
+*.tlog
+*.ipch
+ipch
+*.aps
+*.reg
